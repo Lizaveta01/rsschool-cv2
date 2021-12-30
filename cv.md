@@ -19,7 +19,7 @@ My goal is to learn everything new and exciting.  I can spend a lot of time doin
 * CSS (Fundamentals)
 * JavaScript (Fundamentals)
 * Version control: Git (remote service GitHub).
-* Editors:VSCode
+* Editors: VSCode
 * Trello
 * Jira
 * Figma
