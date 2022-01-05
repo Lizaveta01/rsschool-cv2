@@ -1,3 +1,212 @@
-.title {
-	font-size: 12px;
+* {
+    box-sizing: border-box;
+  } /*границы и внутренние отступы будут учитываться в значениях, которые указываешь в ширине и высоте элемента, относиться ко всем элементам, которые встречаются на странице*/
+
+html {
+	scroll-behavior: smooth;
+  } /*плавная прокрутка*/
+
+body {
+	display: flex; /*преобразует элементы в общий контейнер на всю ширину экрана*/
+	flex-direction: column; /*ставит элементы блока в колонну, т.е вертикально распологает один под одним*/
+	justify-content: space-between; /*определяет выравнивание по оси, эл-ты расположены по краям (внизу и вверху и центральный по середине)*/
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	font-family: 'Lexend Deca', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.5;/*расстояние между стоками текста*/
+	color:rgb(63, 53, 0)
 }
+
+.container{
+	max-width: 1440px;
+    margin: 0 auto;
+	min-height: 50px;
+  }
+
+.header{
+	background-color: #fde453;/*цвет фона менюшки*/
+  }
+
+.nav-list {
+	display: flex; /*преобразует элементы в общий контейнер на всю ширину экрана*/
+	justify-content: flex-end; /*элементы разлещаются с правой стороны*/
+	list-style: none; /*убирает символ "точки" списка*/
+  }
+
+.nav-link {
+	position: relative;
+	padding: 0 24px; /* 1-вертикальные отступы, 2- горизонтальные*/
+	text-decoration: none; /*нижне подчеркивание ссылки*/
+	font-size: 20px; /*размер шрифта*/
+	font-weight: 300;/*жирность шрифта*/
+	line-height: 10px; /*высота строки меню*/
+	color: white; /*цвет ссылок*/
+  }
+
+.nav-link:after {
+	position: absolute;
+	content: "";/*текст который будет написан в этой черте*/
+	bottom: -5px;/*расположении линии подчеркивание ниже текста на 5 пкселей*/
+	height: 3px;/*высота=толщина линии*/
+	left: 24px;
+	background-color: #ffffff;
+	transition:  0.6s;/*время анимации*/
+	}
+
+.nav-link:hover::after {
+	opacity: 1;
+	animation-name: slidein;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	}
+	  
+@keyframes slidein {
+		from {
+		  width: 0;
+		}
+		to {
+		  width: calc(100% - 48px);/*отнимаем размер padding x 2, чтобы узнать линию завершения*/
+		}
+	}
+
+.main {
+	margin-bottom: auto;
+}
+	  
+.main-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.section {
+	width: calc(50% - 20px);
+	padding: 10px;
+	padding-bottom: 35px; /*расстояние снизу до следующего элемента, внутренние отступы*/
+	border-bottom: 1px solid #672f2f;
+  }
+  
+.section-title {
+	margin-bottom: 20px; /*расстояние снизу до следующего элемента, внешние отступы*/
+	font-size: 20px;
+	font-weight: 400;
+	text-transform: uppercase; /*капс*/
+	letter-spacing: 4px; /*расстояние между буквами*/
+	color: #e9c655;
+  }
+  
+.section-profile {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	padding: 50px 30px 35px;
+	border-bottom: none;
+  }
+  
+
+  
+.section-profile-title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	text-align: center;  
+	text-transform: uppercase;
+  }
+
+.main-title {
+	position: relative;
+	padding: 0;
+	margin-bottom: 20px;
+	color: #4d2323;
+	font-size: 32px;
+	font-weight: 300;
+	letter-spacing: 10px;
+	line-height: 50px;
+	word-spacing: 3px;
+  }
+  
+.main-title::after {
+	content: "";
+	position: absolute;
+	bottom: -19px;
+	left: 50%;
+	margin-left: -70px;
+	width: 140px;
+	height: 2px;
+	background-color: #a0780a;
+  }
+  
+.section-subtitle {
+	margin-top: 20px;
+	color: #e9c655;
+	line-height: 50px;
+	font-weight: 300;
+	letter-spacing: 2px;
+  }
+
+@media (max-width: 768px) {
+	.section {
+	  width: 100%;
+	}
+  } /*при уменьшении ширины экрана до 768px, секция будет занимать всю ширину*/
+
+.pre {
+	padding: 0;
+	margin: 0;
+  }
+
+.section-experience,
+.section-languages {
+	border-bottom: 0;
+  }
+
+  .section-list {
+	margin: 0;
+	padding: 0;  
+	list-style: none;
+  }
+
+  .section-item {
+	position: relative;
+	margin: 0;
+	margin-bottom: 10px;
+	padding: 0;
+	padding-left: 30px;
+  }
+  
+.section-item a {
+	text-decoration: none;
+	color: #b8ac3f;
+	transition: color 0.5s;
+  }
+  
+.section-item a:hover {
+	color: #791717;
+  }
+
+.footer {
+	background-color: #fde453;
+	padding: 20px;  
+  }
+  
+.footer-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	color: #fff;	
+  }
+
+.rss {
+	width: 121px;
+	height: 45px;
+	background-image: url("./assets/svg/rs_school_js.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+  }
+
